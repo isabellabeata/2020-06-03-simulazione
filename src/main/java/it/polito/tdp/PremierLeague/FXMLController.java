@@ -44,6 +44,19 @@ public class FXMLController {
 
     @FXML
     void doCreaGrafo(ActionEvent event) {
+    	this.txtResult.clear();
+    	if(this.txtGoals.getText()=="") {
+    		this.txtResult.setText("Inserire una soglia di goal valida!");
+    	}
+    	else {
+    	
+    	Double goal=Double.parseDouble(this.txtGoals.getText());
+    	this.model.creaGrafo(goal);
+    	
+    	this.txtResult.appendText(this.model.nVertici());
+    	this.txtResult.appendText(this.model.nArchi());
+    	
+    	}
 
     }
 
@@ -54,6 +67,9 @@ public class FXMLController {
 
     @FXML
     void doTopPlayer(ActionEvent event) {
+    	
+    	this.txtResult.clear();
+    	this.txtResult.appendText(this.model.topPlayer().toString());
 
     }
 
