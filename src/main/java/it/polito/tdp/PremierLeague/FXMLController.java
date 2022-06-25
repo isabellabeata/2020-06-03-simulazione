@@ -62,8 +62,19 @@ public class FXMLController {
 
     @FXML
     void doDreamTeam(ActionEvent event) {
+    	String num= this.txtK.getText();
+    	if(num=="") {
+    		this.txtResult.setText("Inserire un numero minimo di giocatori");
+    	}
+    	else {
+    		this.txtResult.clear();
+    		Integer k= Integer.parseInt(num);
+    		
+    		this.txtResult.appendText(this.model.dreamTeam(k));
+    		}
+    	}
 
-    }
+    	
 
     @FXML
     void doTopPlayer(ActionEvent event) {
